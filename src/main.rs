@@ -13,15 +13,28 @@ extern crate router;
 #[macro_use]
 extern crate slog;
 
+mod views;
+
 use hybridweb::prelude::*;
+use views::*;
 
 fn main() {
-	let x = hybrid! {
-		get "/", cool: (req, con) => {
-			trace![con.log, "Got request", "req" => format!("{:?}", req)];
-			Reply::Html("<h1>Hello world!</h1>".into())
-			// Reply::Redirect(con.rev.cool.into())
-		}
+
+	let hybrid = hybrid! {
+
+		get "/", homepage: (req, elm) => {
+			debug![elm.log, "Got request", "req" => format!("{:?}", req)];
+			Reply::Html(render())
+		},
+
+		get "/user/:uid", userpage: (req, elm) => {
+			Reply::Html(
+				render2(req.ext::<Router>().find("uid").unwrap_or("nobody"),
+					elm.rev.homepage)
+			)
+		},
+
 	};
-	Iron::new(x).http("localhost:3000").unwrap();
+
+	Iron::new(hybrid).http("localhost:3000").unwrap();
 }
