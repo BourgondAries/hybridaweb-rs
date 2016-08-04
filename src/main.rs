@@ -13,6 +13,8 @@ extern crate router;
 #[macro_use]
 extern crate slog;
 
+#[macro_use]
+mod macros;
 mod views;
 
 use hybridweb::prelude::*;
@@ -33,6 +35,10 @@ fn main() {
 				render2(req.ext::<Router>().find("uid").unwrap_or("nobody"),
 					elm.rev.homepage)
 			)
+		},
+
+		post "/user/:new", newuser: (req, elm) => {
+			Reply::Redirect(String::from(elm.rev.userpage) + "/ok")
 		},
 
 	};
