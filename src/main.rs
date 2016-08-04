@@ -20,7 +20,7 @@ use views::*;
 
 fn main() {
 
-	let hybrid = hybrid! {
+	let (hybrid, surround) = hybrid! {
 
 		get "/", homepage: (req, elm) => {
 			debug![elm.log, "Got request", "req" => format!("{:?}", req)];
@@ -36,5 +36,10 @@ fn main() {
 
 	};
 
+	fn prepends(x: String) -> String { String::from("<p>Nice</p>") + &x }
+
+	surround.surround_with(prepends);
+
 	Iron::new(hybrid).http("localhost:3000").unwrap();
+
 }
