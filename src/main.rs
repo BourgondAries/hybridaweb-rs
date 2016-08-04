@@ -38,7 +38,6 @@ fn main() {
 	};
 
 	surround.surround_with(surrounder);
-
 	Iron::new(hybrid).http("localhost:3000").unwrap();
 
 }

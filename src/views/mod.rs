@@ -21,11 +21,21 @@ macro_rules! gen {
 	);
 }
 
-gen!(quick()
-	h1 { "real nice" }
-);
+macro_rules! gens {
+	($($i:ident ($($tn:ident : $tp:ty),*) { $($r:tt)* })*) => (
+		$(
+			gen!($i ($($tn : $tp),*) $($r)*);
+		)*
+	);
+}
 
-gen!(surrounder(x: String)
+gens! {
+
+quick() {
+	h1 { "real nice" }
+}
+
+surrounder(x: String) {
 	html {
 		head {
 			meta charset="utf-8" /
@@ -37,17 +47,19 @@ gen!(surrounder(x: String)
 			^PreEscaped(x)
 		}
 	}
-);
+}
 
-gen!(render()
+render() {
 	h1 { "Hybrid web framework" }
-);
+}
 
-gen!(render2(user: &str, link: &str)
+render2(user: &str, link: &str) {
 	h1 {
 		"Welcome, " ^user "!"
 	}
 	h2 {
 		"Click " a href=^link { "here" } " to go back"
 	}
-);
+}
+
+}
