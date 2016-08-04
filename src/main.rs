@@ -36,9 +36,7 @@ fn main() {
 
 	};
 
-	fn prepends(x: String) -> String { String::from("<p>Nice</p>") + &x }
-
-	surround.surround_with(prepends);
+	surround.surround_with(surrounder);
 
 	Iron::new(hybrid).http("localhost:3000").unwrap();
 
