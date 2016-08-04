@@ -24,7 +24,8 @@ fn main() {
 
 		get "/", homepage: (req, elm) => {
 			debug![elm.log, "Got request", "req" => format!("{:?}", req)];
-			Reply::Html(render())
+			Reply::Html(render());
+			Reply::Html(quick())
 		},
 
 		get "/user/:uid", userpage: (req, elm) => {

@@ -11,32 +11,43 @@ macro_rules! html_quick {
 	});
 }
 
-pub fn surrounder(x: String) -> String {
-	html_quick! {
-		html {
-			head {
-				meta charset="utf-8" /
-			}
-			body {
-				^PreEscaped(x)
+macro_rules! gen {
+	($i:ident ($($tn:ident : $tp:ty),*) $($r:tt)*) => (
+		pub fn $i($($tn : $tp),*) -> String {
+			html_quick! {
+				$($r)*
 			}
 		}
-	}
+	);
 }
 
-pub fn render() -> String {
-	html_quick! {
-		h1 { "Hybrid web framework" }
-	}
-}
+gen!(quick()
+	h1 { "real nice" }
+);
 
-pub fn render2(user: &str, link: &str) -> String {
-	html_quick! {
-		h1 {
-			"Welcome, " ^user "!"
+gen!(surrounder(x: String)
+	html {
+		head {
+			meta charset="utf-8" /
+			meta name="description" content="Hybrida's Website" /
+			link rel="author" href="https://github.com/BourgondAries" /
+			title { "Hybrida" }
 		}
-		h2 {
-			"Click " a href=^link { "here" } " to go back"
+		body {
+			^PreEscaped(x)
 		}
 	}
-}
+);
+
+gen!(render()
+	h1 { "Hybrid web framework" }
+);
+
+gen!(render2(user: &str, link: &str)
+	h1 {
+		"Welcome, " ^user "!"
+	}
+	h2 {
+		"Click " a href=^link { "here" } " to go back"
+	}
+);
