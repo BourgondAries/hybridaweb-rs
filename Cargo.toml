@@ -5,6 +5,7 @@ authors = ["Kevin Robert Stravers <kstraver@cisco.com>"]
 
 [dependencies]
 clippy = { version = "0.0.80", optional = true }
+hado = "0.1.0"
 hybridweb = { path = "../hybridweb-rust" }
 iron = "0.4.0"
 maud = "0.9.0"
