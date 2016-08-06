@@ -15,7 +15,10 @@ macro_rules! rep {
 }
 
 macro_rules! red {
-	($c:ident, $e:expr) => ({
+	($e:expr) => ({
+		red![$e, Found]
+	});
+	($e:expr, $c:ident) => ({
 		Ok(Response::with((status::$c, modifiers::Header(headers::Location($e)))))
 			as IronResult<Response>
 	});

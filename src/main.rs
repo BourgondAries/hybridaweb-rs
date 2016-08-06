@@ -34,12 +34,12 @@ fn main() {
 		},
 
 		get "/user/:uid", userpage => {
-			rep![render2(req.ext::<Router>().find("uid").unwrap_or("nobody"),
-				elm.rev.homepage)]
+			rep![sur(render2(req.ext::<Router>().find("uid").unwrap_or("nobody"),
+				elm.rev.homepage))]
 		},
 
 		post "/user/:new", newuser => {
-			red![Found, String::from(elm.rev.userpage) + "/ok"]
+			red![String::from(elm.rev.userpage) + "/ok"]
 		},
 
 	};
