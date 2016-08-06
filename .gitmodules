@@ -1,0 +1,12 @@
+[submodule "files/Playfair-Display"]
+	path = files/Playfair-Display
+	url = https://github.com/clauseggers/Playfair-Display
+[submodule "files/Raleway"]
+	path = files/Raleway
+	url = https://github.com/impallari/Raleway/
+[submodule "files/jquery"]
+	path = files/jquery
+	url = https://github.com/jquery/jquery
+[submodule "files/bootstrap"]
+	path = files/bootstrap
+	url = https://github.com/twbs/bootstrap
