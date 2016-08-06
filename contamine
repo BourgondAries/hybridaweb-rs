@@ -4,11 +4,20 @@
 
 set -e
 cd "${0%/*}"
+ROOT="$(pwd)"
 
-if ! command -v npm >& /dev/null; then
-	echo "'npm' is not installed. Please install 'npm'"
-	exit 1
-fi
+check() {
+	if ! command -v "$1" >& /dev/null; then
+		echo "'$1' is not installed. Please install '$1'"
+		exit 1
+	fi
+	echo "'$1' found"
+}
+
+check cargo
+check git
+check npm
+check rustc
 
 git submodule update --init --recursive
 cd files/jquery
