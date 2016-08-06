@@ -1,5 +1,14 @@
 macro_rules! rep {
-	($c:ident, $e:expr, $t:ident, $s:ident) => ({
+	($e:expr) => ({
+		rep![$e, Ok]
+	});
+	($e:expr, $c:ident) => ({
+		rep![$e, $c, Text]
+	});
+	($e:expr, $c:ident, $t:ident) => ({
+		rep![$e, $c, $t, Html]
+	});
+	($e:expr, $c:ident, $t:ident, $s:ident) => ({
 		let response: IronResult<Response> = Ok(Response::with((status::$c, $e, Mime(TopLevel::$t, SubLevel::$s, vec![]))));
 		response
 	});
@@ -25,10 +34,10 @@ macro_rules! html_quick {
 
 macro_rules! gen {
 	($i:ident ($($tn:ident : $tp:ty),*) $($r:tt)*) => (
-		pub fn $i($($tn : $tp),*) -> ::iron::IronResult<::iron::response::Response> {
-			html(html_quick! {
+		pub fn $i($($tn : $tp),*) -> String {
+			html_quick! {
 				$($r)*
-			})
+			}
 		}
 	);
 }
