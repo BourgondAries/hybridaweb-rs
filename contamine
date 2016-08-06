@@ -2,8 +2,14 @@
 
 # This script initializes the system for local usage
 
-# We make sure that the bash script stops on errors
 set -e
+cd "${0%/*}"
 
-# Update all submodules
+if ! command -v npm >& /dev/null; then
+	echo "'npm' is not installed. Please install 'npm'"
+	exit 1
+fi
+
 git submodule update --init --recursive
+cd files/jquery
+npm run build

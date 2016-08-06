@@ -65,7 +65,7 @@ pub fn sur(custom_html: String) -> String {
 gens! {
 
 render() {
-	h1 { "Hybrid web framework" }
+	h1 { "Hybrid web fråmewørk æÅØÆ" }
 }
 
 render2(user: &str, link: &str) {
