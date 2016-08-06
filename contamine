@@ -7,7 +7,3 @@ set -e
 
 # Update all submodules
 git submodule update --init --recursive
-# We populate all submodules
-git submodule foreach git pull origin master
-
-# Pull all images from the host
