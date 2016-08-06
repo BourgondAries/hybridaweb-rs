@@ -1,13 +1,5 @@
 use maud::PreEscaped;
 
-fn html(x: String) -> ::iron::IronResult<::iron::response::Response> {
-	Ok(::iron::response::Response::with((::iron::status::Status::Ok,
-	                                     x,
-	                                     ::iron::mime::Mime(::iron::mime::TopLevel::Text,
-	                                                        ::iron::mime::SubLevel::Html,
-	                                                        vec![]))))
-}
-
 gens! {
 
 quick() {
