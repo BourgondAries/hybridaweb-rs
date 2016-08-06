@@ -30,7 +30,7 @@ fn main() {
 
 		get "/", homepage => {
 			debug![elm.log, "Got request", "req" => format!("{:?}", req)];
-			rep![render()]
+			rep![sur(render())]
 		},
 
 		get "/user/:uid", userpage => {

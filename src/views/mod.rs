@@ -2,11 +2,7 @@ use maud::PreEscaped;
 
 gens! {
 
-quick() {
-	h1 { "real nice" }
-}
-
-surrounder(x: String) {
+sur(x: String) {
 	html {
 		head {
 			meta charset="utf-8" /
