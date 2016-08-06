@@ -9,9 +9,9 @@ macro_rules! rep {
 }
 
 macro_rules! red {
-	($e:expr) => ({ red![$e, Found] });
+	($e:expr) => ({ red![$e, PermanentRedirect] });
 	($e:expr, $c:ident) => ({
-		Ok(Response::with((status::$c, modifiers::Header(headers::Location($e)))))
+		Ok(Response::with((status::$c, modifiers::Header(headers::Location($e.to_string())))))
 			as IronResult<Response>
 	});
 }

@@ -71,6 +71,12 @@ pub fn sur(custom_html: String) -> String {
 
 gens! {
 
+example() {
+	h1 { "Eksempel side" }
+	p { "Bruk git grep for å finne hvor denne teksten ligger" }
+	p { "git grep 'Eksempel side'" }
+}
+
 render() {
 	h1 { "Hybrid web fråmewørk æÅØÆ" }
 }
