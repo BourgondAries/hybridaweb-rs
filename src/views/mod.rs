@@ -19,7 +19,9 @@ pub fn sur(custom_html: String) -> String {
 				link rel="stylesheet" type="text/css" href="/files/bootstrap/dist/css/bootstrap.min.css" /
 				link rel="stylesheet" type="text/css" href="/files/bootstrap/dist/css/bootstrap-theme.min.css" /
 
+				link rel="stylesheet" type="text/css" href="/files/styles/fonts.css" /
 				link rel="stylesheet" type="text/css" href="/files/styles/main.css" /
+				link rel="stylesheet" type="text/css" href="/files/styles/media.css" /
 			}
 			body {
 				nav class="navbar navbar-default navbar-fixed-top" {
