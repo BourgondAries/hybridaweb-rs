@@ -9,14 +9,16 @@ macro_rules! rep {
 		rep![$e, $c, $t, Html]
 	});
 	($e:expr, $c:ident, $t:ident, $s:ident) => ({
-		let response: IronResult<Response> = Ok(Response::with((status::$c, $e, Mime(TopLevel::$t, SubLevel::$s, vec![]))));
+		let response: IronResult<Response> =
+			Ok(Response::with((status::$c, $e, Mime(TopLevel::$t, SubLevel::$s, vec![]))));
 		response
 	});
 }
 
 macro_rules! red {
 	($c:ident, $e:expr) => ({
-		let response: IronResult<Response> = Ok(Response::with((status::$c, modifiers::Header(headers::Location($e)))));
+		let response: IronResult<Response> =
+			Ok(Response::with((status::$c, modifiers::Header(headers::Location($e)))));
 		response
 	});
 }
