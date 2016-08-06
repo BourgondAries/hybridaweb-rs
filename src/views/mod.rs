@@ -6,6 +6,10 @@ pub fn sur(custom_html: String) -> String {
 			head {
 				meta charset="utf-8" /
 				meta name="description" content="Hybrida's Website" /
+				link rel="icon" type="image/png" href="/files/images/favicon16x16.png"
+				link rel="icon" type="image/png" href="/files/images/favicon24x24.png"
+				link rel="icon" type="image/png" href="/files/images/favicon32x32.png"
+				link rel="icon" type="image/png" href="/files/images/favicon64x64.png"
 				link rel="author" href="https://github.com/BourgondAries" /
 				title { "Hybrida" }
 
