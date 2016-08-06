@@ -39,10 +39,10 @@ pub fn sur(custom_html: String) -> String {
 						}
 						div class="collapse navbar-collapse" id="navigation_menu" {
 							ul class="nav navbar-nav" {
-								li { a href="/index" { "Nytt Innlegg" } }
+								li { a href="/nyttinnlegg" { "Nytt Innlegg" } }
 								li { a href="/bedrift" { "Bedrift" } }
-								li { a href="/about" { "Om Hybrida" } }
-								li { a href="/ringen" { "I&IKT-Ringen" } }
+								li { a href="/omoss" { "Om Hybrida" } }
+								li { a href="/iktringen" { "I&IKT-Ringen" } }
 							}
 							form class="navbar-form navbar-right" role="search" action="/search" method="GET" {
 								div class="form-group" {
@@ -51,13 +51,12 @@ pub fn sur(custom_html: String) -> String {
 							}
 							ul class="nav navbar-nav navbar-right" {
 								li class="dropdown" {
-									a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#" { "UsernameXHD" }
+									a class="dropdown-toggle" role="button" data-toggle="dropdown" href="/logginn" { "Logg inn" }
 									ul class="dropdown-menu" role="menu" {
-										li { a href="userprof" { "Profil" }}
-										li { a href="rfid" { "RFID Prikking" }}
-										li { a href="bedrift" { "Bedrifter" }}
-										li { a href="logging" { "Logg ut" }}
-										li { a href="adminlogout" { "Logg ut" }}
+										li { a href="/profiler" { "Profiler" }}
+										li { a href="/rfid" { "RFID Prikking" }}
+										li { a href="/bedrifter" { "Bedrifter" }}
+										li { a href="/loggut" { "Logg ut" }}
 									}
 								}
 							}
