@@ -40,7 +40,7 @@ fn main() {
 		// The first field is the http method
 		// The second field "/example" is the route
 		// The third field "example_route" is used for reverse routing
-		get "/example", example_route => {
+		get "/examples", example_route => {
 
 			// This is how you log. You can use trace!, debug!, info!, warn!, error!, crit!
 			info![elm.log, "Hello", "where" => "world"];
@@ -66,6 +66,7 @@ fn main() {
 			// `rep!` is a 1-4-ary macro that can return json, html, status codes, and MIME types
 			// Using `rep!` with one argument defaults to Ok with a MIME of text/html
 			// rep![sur(example())]
+
 			// rep![sur(example()), Ok]
 			// rep![sur(example()), Ok, Text]
 			// rep![sur(example()), Ok, Text, Html]
@@ -76,6 +77,9 @@ fn main() {
 			// Redirect
 			// red![elm.rev.homepage]
 			// red![elm.rev.homepage, PermanentRedirect]
+
+			// Cookies can be set as part of the response
+			rep![sur(example())].cookie("count", 1).cookie("volume", "50")
 		},
 
 		get "/", homepage => {
