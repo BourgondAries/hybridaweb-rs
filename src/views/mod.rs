@@ -27,7 +27,8 @@ pub fn sur(custom_html: String) -> String {
 				nav class="navbar navbar-default navbar-fixed-top" {
 					div class="container-fluid nav-container" {
 						div class="navbar-header" {
-							button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation_menu" {
+							button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+							data-target="#navigation_menu" {
 								span class="sr-only" { "Toggle navigation" }
 								span class="icon-bar" { }
 								span class="icon-bar" { }
@@ -51,7 +52,9 @@ pub fn sur(custom_html: String) -> String {
 							}
 							ul class="nav navbar-nav navbar-right" {
 								li class="dropdown" {
-									a class="dropdown-toggle" role="button" data-toggle="dropdown" href="/logginn" { "Logg inn" }
+									a class="dropdown-toggle" role="button" data-toggle="dropdown" href="/logginn" {
+										"Logg inn"
+									}
 									ul class="dropdown-menu" role="menu" {
 										li { a href="/profiler" { "Profiler" }}
 										li { a href="/rfid" { "RFID Prikking" }}
