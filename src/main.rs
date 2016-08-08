@@ -8,15 +8,13 @@
 extern crate hado;
 extern crate iron;
 extern crate maud;
-#[macro_use(hybrid)]
+#[macro_use]
 extern crate hybridweb;
 #[macro_use(router)]
 extern crate router;
 #[macro_use]
 extern crate slog;
 
-#[macro_use]
-mod macros;
 mod views;
 
 use hybridweb::prelude::*;
