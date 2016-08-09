@@ -22,6 +22,15 @@ use views::*;
 
 fn main() {
 
+	macro_rules! surr {
+		($e:expr, $($t:tt),*) => ({
+			rep![sur($e), $($t),*]
+		});
+		($e:expr) => ({
+			rep![sur($e)]
+		});
+	}
+
 	let hybrid = hybrid! {
 
 		// TUTORIAL
@@ -77,7 +86,8 @@ fn main() {
 			// red![elm.rev.homepage, PermanentRedirect]
 
 			// Cookies can be set as part of the response
-			rep![sur(example())].cookie("count", 1).cookie("volume", "50")
+			// rep![sur(example())].cookie("count", 1).cookie("volume", "50")
+			surr![example()]
 		},
 
 		get "/", homepage => {
