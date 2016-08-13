@@ -31,6 +31,18 @@ fn main() {
 		});
 	}
 
+	/*
+	let hybrid2 = hybrid2! {
+		(req, elm) |
+
+		get "/examples"; user; ""; kek, example_route => {
+			let user = get_user(user);
+			rev.example_route.link(103, "ok");
+			surr!["cool"]
+		},
+	}
+	*/
+
 	let hybrid = hybrid! {
 
 		// TUTORIAL
